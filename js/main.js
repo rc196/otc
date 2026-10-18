@@ -42,14 +42,45 @@ var INSTAGRAM_POST_COUNT = 12;
   header.addEventListener("focusin", function () { header.classList.remove("is-hidden"); });
 })();
 
-// Mobile navigation toggle
+// Mobile navigation drawer
 (function () {
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");
   if (!toggle || !nav) return;
-  toggle.addEventListener("click", function () {
-    var open = nav.classList.toggle("is-open");
+
+  var root = document.documentElement;
+  // The overlay lives inside the header so it also dims the logo and header bar
+  var overlay = document.createElement("div");
+  overlay.className = "nav-overlay";
+  document.querySelector(".site-header").appendChild(overlay);
+
+  function setOpen(open) {
+    nav.classList.toggle("is-open", open);
+    root.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    if (open) {
+      var first = nav.querySelector("a");
+      if (first) first.focus({ preventScroll: true });
+    }
+  }
+
+  function isOpen() { return nav.classList.contains("is-open"); }
+
+  toggle.addEventListener("click", function () { setOpen(!isOpen()); });
+  overlay.addEventListener("click", function () { setOpen(false); });
+  nav.addEventListener("click", function (e) {
+    if (e.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && isOpen()) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  // Close the drawer if the window grows to the desktop layout
+  window.matchMedia("(min-width: 861px)").addEventListener("change", function (e) {
+    if (e.matches) setOpen(false);
   });
 })();
 

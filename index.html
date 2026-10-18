@@ -22,16 +22,19 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header site-header--overlay">
+  <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-logo" href="./" aria-label="Oakland Track Club home">
         <img src="images/logo.png" alt="Oakland Track Club" width="1568" height="97">
       </a>
-      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul>
+        <li class="nav-home"><a href="./" aria-current="page">Home</a></li>
         <li><a href="about/">Our story</a></li>
         <li><a href="weekly-runs/">Weekly Runs</a></li>
         <li><a href="otc-events/">Events</a></li>
@@ -42,8 +45,8 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-label="Oakland Track Club">
-      <img src="images/home-hero.jpg" alt="Two Oakland Track Club runners racing on a track" style="object-position: 50% 45%;">
+    <section class="hero hero--full" aria-label="Oakland Track Club">
+      <img src="images/home-hero.jpg" alt="Two Oakland Track Club runners racing on a track" style="object-position: 58% 0%;">
     </section>
 
     <section class="section intro">
