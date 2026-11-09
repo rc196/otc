@@ -147,40 +147,6 @@ var INSTAGRAM_POST_COUNT = 12;
     });
 })();
 
-// Photo gallery lightbox (home page)
-(function () {
-  var gallery = document.querySelector(".gallery");
-  var dialog = document.querySelector(".lightbox");
-  if (!gallery || !dialog || typeof dialog.showModal !== "function") return;
-
-  var buttons = Array.prototype.slice.call(gallery.querySelectorAll("button"));
-  var img = dialog.querySelector("img");
-  var current = 0;
-
-  function show(i) {
-    current = (i + buttons.length) % buttons.length;
-    var thumb = buttons[current].querySelector("img");
-    img.src = thumb.getAttribute("src");
-    img.alt = thumb.getAttribute("alt");
-  }
-
-  buttons.forEach(function (btn, i) {
-    btn.addEventListener("click", function () {
-      show(i);
-      dialog.showModal();
-    });
-  });
-
-  dialog.querySelector(".lightbox__close").addEventListener("click", function () { dialog.close(); });
-  dialog.querySelector(".lightbox__nav--prev").addEventListener("click", function () { show(current - 1); });
-  dialog.querySelector(".lightbox__nav--next").addEventListener("click", function () { show(current + 1); });
-  dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
-  dialog.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft") show(current - 1);
-    if (e.key === "ArrowRight") show(current + 1);
-  });
-})();
-
 // Highlight the nav link for the section currently in view
 (function () {
   var links = Array.prototype.slice.call(document.querySelectorAll('.site-nav a[href^="#"]'));
