@@ -30,5 +30,3 @@ images/               Images
 - Edit page text directly in `index.html`.
 - **Weekly runs and events:** each one is an `<article>` block. Copy a block to add one, or delete it to remove one.
 - **Header and footer:** these also appear in `404.html`. Update both when changing either.
-- **Instagram feed:** set `INSTAGRAM_FEED_URL` in `js/main.js` to a [Behold](https://behold.so) JSON feed URL.
-  Without it, the footer shows a link to Instagram instead.
