@@ -15,13 +15,13 @@ Then open http://localhost:8000.
 ## Structure
 
 ```
-index.html            The whole site: one page with Home, Our story (#about),
-                      Weekly Runs (#weekly-runs), Events (#events) and
-                      Contact and Membership (#membership) sections
+index.html            The whole site: one page with Home, Weekly Runs (#weekly-runs),
+                      Events (#events) and Contact and Membership
+                      (#membership) sections
 about/, weekly-runs/, otc-events/, membership/
-                      Redirects from the old page URLs to the sections above
+                      Redirects from the old page URLs to the page/sections above
 css/style.css         Styles (colors and fonts are variables at the top)
-js/main.js            Header, mobile menu, Instagram feed, photo lightbox
+js/main.js            Header, mobile menu, Instagram feed
 images/               Images
 ```
 
