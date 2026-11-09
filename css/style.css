@@ -388,7 +388,7 @@ body[id] { scroll-margin-top: 0; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 .gallery button {
@@ -406,7 +406,6 @@ body[id] { scroll-margin-top: 0; }
   transition: transform 0.3s ease;
 }
 .gallery button:hover img { transform: scale(1.04); }
-@media (max-width: 500px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
 
 .lightbox {
   border: 0;
