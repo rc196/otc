@@ -27,6 +27,9 @@
 *::after { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html, .ig-feed__track { scroll-behavior: auto; }
+}
 
 body {
   margin: 0;
@@ -40,6 +43,11 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 
 a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+.section--black :focus-visible,
+.quote :focus-visible,
+.lightbox :focus-visible { outline-color: var(--white); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
@@ -101,8 +109,8 @@ body[id] { scroll-margin-top: 0; }
 .btn:focus-visible { background: var(--red-dark); }
 .btn--italic { font-style: italic; letter-spacing: 0.08em; font-family: var(--font-body); font-size: 14px; }
 /* Disabled buttons (e.g. "Check back next year"): grayed out, not clickable */
-.btn[aria-disabled="true"],
-.btn[aria-disabled="true"]:hover {
+.btn--disabled,
+.btn--disabled:hover {
   background: #767676;
   color: var(--white);
   cursor: default;
@@ -207,6 +215,9 @@ body[id] { scroll-margin-top: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+/* Enlarge the tap target to 48px without changing the icon size */
+.nav-toggle::after { content: ""; position: absolute; inset: -10px -9px; }
 
 .nav-overlay { display: none; }
 

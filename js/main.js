@@ -59,6 +59,8 @@ var INSTAGRAM_POST_COUNT = 12;
     root.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    // Keep keyboard and screen reader users inside the open drawer
+    document.querySelectorAll("main, footer").forEach(function (el) { el.inert = open; });
     if (open) {
       var first = nav.querySelector("a");
       if (first) first.focus({ preventScroll: true });
@@ -159,9 +161,8 @@ var INSTAGRAM_POST_COUNT = 12;
 
   function show(i) {
     current = (i + buttons.length) % buttons.length;
-    var thumb = buttons[current].querySelector("img");
-    img.src = thumb.getAttribute("src");
-    img.alt = thumb.getAttribute("alt");
+    img.src = buttons[current].querySelector("img").getAttribute("src");
+    img.alt = buttons[current].dataset.alt || "";
   }
 
   buttons.forEach(function (btn, i) {
